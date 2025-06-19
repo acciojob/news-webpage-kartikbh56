@@ -1,16 +1,189 @@
 <!DOCTYPE html>
-
-<html>
-
+<html lang="en">
 <head>
-	<link rel="stylesheet" href="styles.css">
-</head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaw's News</title>
+    <style>
+        /* Define colors as variables for easier management */
+        :root {
+            --header-background-color: #011e29;
+            --body-background-color: #f5f5f5;
+            --section-background-color: #ffffff;
+            --text-color: #333;
+        }
 
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            background-color: var(--body-background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styling */
+        .header {
+            background-color: var(--header-background-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 2em;
+            margin-bottom: 20px; /* Space below the header */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Main content area layout */
+        .main-content {
+            display: flex;
+            justify-content: center; /* Center the columns */
+            gap: 20px; /* Space between columns */
+            padding: 0 20px; /* Padding on the sides of the main content */
+            flex-wrap: wrap; /* Allow columns to wrap on smaller screens */
+            max-width: 1200px; /* Max width for the whole layout */
+            margin: 0 auto; /* Center the entire content block */
+        }
+
+        /* Common styles for all news sections */
+        .news-section {
+            background-color: var(--section-background-color);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            flex-grow: 1; /* Allow sections to grow */
+        }
+
+        /* Latest News Section */
+        .latest-news-section {
+            width: 250px; /* Specific width */
+            padding: 20px; /* Specific padding */
+        }
+
+        .latest-news-section ul {
+            list-style: disc;
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+
+        .latest-news-section li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        /* Main Article Section */
+        .main-article-section {
+            flex-basis: 500px; /* Give it a base width */
+            padding: 20px;
+        }
+
+        .main-article-section h2 {
+            margin-top: 0;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .main-article-section p {
+            color: #444;
+            font-size: 0.95em;
+            text-align: justify;
+        }
+
+        /* Pictorial News Section */
+        .pictorial-news-section {
+            width: 250px; /* Specific width */
+            background-color: var(--section-background-color); /* Specified background color */
+            padding: 20px; /* Specified padding */
+            text-align: center; /* Specified text-align */
+            border-radius: 8px; /* Specified border-radius */
+        }
+
+        .pictorial-news-section img {
+            width: 100%; /* Make images responsive within their container */
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 15px; /* Space between images */
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .pictorial-news-section h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 900px) {
+            .main-content {
+                flex-direction: column; /* Stack columns vertically */
+                align-items: center; /* Center stacked columns */
+                padding: 0 10px;
+            }
+            .latest-news-section,
+            .main-article-section,
+            .pictorial-news-section {
+                width: 100%; /* Take full width when stacked */
+                max-width: 600px; /* Limit individual section width */
+            }
+            .latest-news-section {
+                order: 2; /* Put latest news below main article on small screens */
+            }
+            .main-article-section {
+                order: 1; /* Put main article first on small screens */
+            }
+            .pictorial-news-section {
+                order: 3; /* Keep pictorial news last */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header {
+                font-size: 1.5em;
+                padding: 15px 0;
+            }
+            .news-section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
 <body>
-	<!-- the entire body must be written by student -->
-    <script type="text/javascript" src="./script.js">
-</script>
+
+    <header class="header">
+        <h1>Shaw's News</h1>
+    </header>
+
+    <div class="main-content">
+        <!-- Latest News Section -->
+        <div class="latest-news-section news-section">
+            <h3>Latest News Articles</h3>
+            <ul>
+                <li>Article 1</li>
+                <li>Article 2</li>
+                <li>Article 3</li>
+            </ul>
+        </div>
+
+        <!-- Main Article Section -->
+        <div class="main-article-section news-section">
+            <h2>Main Article</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing
+                elit. Sed auctor, magna eu fringilla malesuada,
+                ipsum risus eleifend est, non feugiat quam augue
+                euismod eros. Sed malesuada, magna eu fringilla
+                malesuada, ipsum risus eleifend est, non feugiat
+                quam augue euismod eros.
+            </p>
+        </div>
+
+        <!-- Pictorial News Section -->
+        <div class="pictorial-news-section news-section">
+            <h3>Pictorial News</h3>
+            <img src="https://picsum.photos/id/237/200/150" alt="News Image One" onerror="this.onerror=null;this.src='https://placehold.co/200x150/e0e0e0/000000?text=Image+1';" />
+            <img src="https://picsum.photos/id/238/200/150" alt="News Image Two" onerror="this.onerror=null;this.src='https://placehold.co/200x150/e0e0e0/000000?text=Image+2';" />
+            <img src="https://picsum.photos/id/239/200/150" alt="News Image Three" onerror="this.onerror=null;this.src='https://placehold.co/200x150/e0e0e0/000000?text=Image+3';" />
+        </div>
+    </div>
 
 </body>
-
 </html>
